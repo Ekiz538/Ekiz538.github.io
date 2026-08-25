@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Outpost DMS — Case Study | Oketayot Emmanuel Kisembo</title>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Outpost DMS — Case Study">
+  <meta property="og:description" content="How a PHP/MySQL distribution system went from paper records to dms.afriboards.com — guarded roles, audited financial edits, and dispatch that cannot move without an approved plan.">
+  <meta property="og:image" content="profile.jpg">
+  <meta name="twitter:card" content="summary">
+  <meta name="description" content="How a PHP/MySQL distribution system went from paper records to dms.afriboards.com — guarded roles, audited financial edits, and dispatch that cannot move without an approved plan.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Crect width=%2264%22 height=%2264%22 rx=%2212%22 fill=%22%230f766e%22/%3E%3Ctext x=%2232%22 y=%2245%22 font-family=%22Georgia,serif%22 font-weight=%22bold%22 font-size=%2236%22 fill=%22white%22 text-anchor=%22middle%22%3EO.%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css?v=4">
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <a class="nav-name" href="index.html">Oketayot Emmanuel Kisembo<span>.</span></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="Oketayot_Kisembo_CV.pdf" target="_blank">Résumé ↗</a>
+      </div>
+    </div>
+  </nav>
+
+  <header>
+    <div class="container">
+      <p class="hero-tag">Project 01 · Live system</p>
+      <h1>Outpost DMS</h1>
+      <p class="hero-sub">Multi-depot distribution management system for LAPOK Ventures — stock taking, dispatch, cash handover and leadership reporting, live at dms.afriboards.com.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://dms.afriboards.com" target="_blank" rel="noopener">Open the live system</a>
+        <a class="btn btn-outline" href="https://github.com/given-dev/lapok-dms-presentation" target="_blank" rel="noopener">Source on GitHub</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <p class="cs-meta-page">PHP APIs · MySQL · vanilla JavaScript · Truehost shared hosting · deployed under the company's domain</p>
+
+        <article class="case-study">
+          <h3>The problem</h3>
+          <p>
+            LAPOK Ventures distributes products across multiple depots. Stock movements, sales
+            and cash handovers were tracked manually, which made reconciliation slow and gave
+            leadership no reliable view of what each depot held, sold or handed over on any day.
+          </p>
+
+          <h3>What the system does</h3>
+          <p>
+            Outpost DMS is a multi-depot platform covering stock taking and dispatch, sales,
+            cash handover, and leadership reporting — with distinct, guarded workflows for
+            cadets (field delivery), accountants (RDC review), managers and admins, including
+            a PDF report chain for leadership.
+          </p>
+
+          <h3>Engineering decisions</h3>
+          <ul>
+            <li><strong>Server-side role ownership.</strong> Permissions are enforced at the API layer: a wrong-role page bounces home with a toast. Hiding menu items is never the security boundary.</li>
+            <li><strong>Dispatch resolved server-side from approved assignments.</strong> Admin maintains the recurring Monday–Saturday cadet, vehicle and route board; managers dispatch stock but route and cadet data are re-resolved by the server from today's approved assignment. Missing or incomplete assignments — and Sundays — block dispatch entirely, so stock cannot move without an authorised plan behind it.</li>
+            <li><strong>Audited financial edits.</strong> Account changes flow through an RDC review and manager-approval workflow instead of direct edits, creating an audit trail for every correction.</li>
+            <li><strong>One shared navigation model.</strong> Every account uses the same off-canvas left menu — full-width dashboard until pinned, closed by selecting a page, clicking outside, or pressing Escape — keeping the UI consistent across role experiences without per-role layouts.</li>
+          </ul>
+
+          <h3>Data model &amp; deployment</h3>
+          <p>
+            The MySQL backend spans a 14-table relational schema with session-based
+            authentication. Deployment runs on Truehost shared hosting with the production
+            database under the company's own domain. The build ships with no seeded sample
+            transactions — operational accounts are created and secured per deployment, and
+            every code push is logged in a team changelog with date, author and summary.
+          </p>
+
+          <h3>Stakeholders &amp; outcomes</h3>
+          <p>
+            Presented to Coca-Cola executives and the client's board during my internship.
+            Depot staff use the system in day-to-day operations: cadets log deliveries against
+            their assigned routes, accountants run RDC reviews, and leadership reads generated
+            PDF reports rather than chasing spreadsheets.
+          </p>
+
+          <h3>Honest constraints</h3>
+          <p>
+            Integration with external systems (CCBA reporting feeds, EFRIS invoicing, fleet GPS)
+            is manual or deferred in this build. Knowing and stating the boundary of a system is
+            part of maintaining it responsibly.
+          </p>
+        </article>
+
+        <p style="margin-top:32px;"><a class="card-link" href="index.html#projects">← Back to all projects</a></p>
+      </div>
+    </section>
+  </main>
+
+
+  <footer>
+    <div class="container footer-bar">
+      <div class="footer-id">
+        <span class="footer-name">Oketayot Emmanuel Kisembo</span>
+        <a class="footer-mail" href="mailto:okettaemma1@gmail.com"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg> okettaemma1@gmail.com</a>
+      </div>
+
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/in/oketayot-emmanuel-kisembo-2bb05841b" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+        <a href="https://github.com/Ekiz538" target="_blank" rel="noopener" aria-label="GitHub"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.63-5.49 5.92.43.38.82 1.11.82 2.24v3.32c0 .32.21.7.83.58A12 12 0 0 0 12 .3z"/></svg></a>
+        <a href="mailto:okettaemma1@gmail.com" aria-label="Email"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© 2026 Oketayot Emmanuel Kisembo</p>
+    </div>
+  </footer>
+
+</body>
+</html>
