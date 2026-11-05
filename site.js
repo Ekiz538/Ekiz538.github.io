@@ -208,7 +208,7 @@
     {
       keys: ["mitsumi", "veeam", "presales", "internship", "intern", "devjyot", "data protection", "backup", "recovery"],
       answer:
-        "Since September 2026 Emmanuel has been a presales intern at Mitsumi Distribution (Devjyot Traders) in Kampala, focused on the Veeam data-protection portfolio. He built a partner-facing responsive HTML email campaign and researched backup and recovery, Veeam licensing, VMware/Broadcom changes, and the wider vendor line card."
+        "Since September 2026 Emmanuel has been a presales intern at Mitsumi Distribution (Devjyot Traders) in Kampala, focused on the Veeam data-protection portfolio. He built a partner-facing email campaign and researched backup and recovery, Veeam licensing, VMware/Broadcom changes, and the wider vendor line card."
     },
     {
       keys: ["kumalo", "acholi", "kumalotech"],
@@ -228,7 +228,7 @@
     {
       keys: ["experience", "cv", "resume", "résumé", "job", "career"],
       answer:
-        "Emmanuel's experience spans live production systems (Outpost DMS and the LAPOK catalogue), a team contribution at KumaloTech, academic database projects, and his current presales internship at Mitsumi Distribution. The Résumé link in the navigation opens the PDF; for a current copy, email okettaemma1@gmail.com."
+        "Emmanuel's experience spans live production systems (Outpost DMS and the LAPOK catalogue), a team contribution at KumaloTech, academic database projects, and his current presales internship at Mitsumi Distribution. The Résumé link opens an in-browser preview with a download option; for a current copy, email okettaemma1@gmail.com."
     },
     {
       keys: ["education", "school", "university", "kyambogo", "study", "student", "cgpa", "degree"],
