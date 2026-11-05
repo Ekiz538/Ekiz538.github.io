@@ -196,6 +196,16 @@
         "The LAPOK catalogue site (lapok.afriboards.com) is a product catalogue with per-SKU slideshows, a promotions engine, and a WhatsApp bulk-ordering flow. Customers compose an order on the site and it arrives as a structured WhatsApp message. There is no checkout because buying happens through existing WhatsApp relationships."
     },
     {
+      keys: ["certification", "certifications", "certificate", "certificates", "cert", "certs", "credential", "credentials", "cisco", "ccna", "data analytics", "network security", "networking"],
+      answer:
+        "Cisco Networking Academy credentials: CCNA: Network Security (31 Oct 2026), Data Analytics Essentials (27 Aug 2026), and CCNA: Introduction to Networks (10 Jul 2025)."
+    },
+    {
+      keys: ["badge", "badges", "vsp", "vmts", "veeam university", "veeam badges", "veeam training", "veeam certifications", "veeam certification", "veeam credentials", "university partner", "training", "learned", "learning"],
+      answer:
+        "Veeam University Partner 2026 badges: Veeam Sales Professional (VSP) — Cyber Resilience & Recovery, SaaS Cloud Protection, Modern Apps & Kubernetes, On Premises & Cloud, and Provider Delivery; plus Veeam Technical Specialist (VMTS) — SaaS Protection, Cybersecurity & DR, Public Cloud, and Kubernetes Data Protection. That is nine badges across five VSP and four VMTS tracks."
+    },
+    {
       keys: ["mitsumi", "veeam", "presales", "internship", "intern", "devjyot", "data protection", "backup", "recovery"],
       answer:
         "Since September 2026 Emmanuel has been a presales intern at Mitsumi Distribution (Devjyot Traders) in Kampala, focused on the Veeam data-protection portfolio. He built a partner-facing responsive HTML email campaign and researched backup and recovery, Veeam licensing, VMware/Broadcom changes, and the wider vendor line card."
@@ -253,12 +263,17 @@
   ];
 
   var fallback =
-    "I can answer questions about Emmanuel's projects, skills, experience at Mitsumi/Veeam, education, or contact details. Try one of the suggestions below, or email okettaemma1@gmail.com for anything else.";
+    "I can answer questions about Emmanuel's projects, skills, certifications, experience at Mitsumi/Veeam, education, or contact details. Try one of the suggestions below, or email okettaemma1@gmail.com for anything else.";
 
   var keyBoost = {
     mitsumi: 3, veeam: 3, presales: 3, internship: 3, intern: 3, devjyot: 3,
     "data protection": 3, backup: 2, recovery: 2,
     contact: 3, email: 3, phone: 3, hire: 2, linkedin: 3, github: 3, whatsapp: 3, reach: 2,
+    certification: 3, certifications: 3, certificate: 3, certificates: 3, cert: 3, certs: 3,
+    credential: 3, credentials: 3, cisco: 3, ccna: 3, "data analytics": 3, "network security": 3, networking: 1,
+    badge: 3, badges: 3, vsp: 3, vmts: 3, "veeam university": 3, "veeam badges": 3,
+    "veeam training": 3, "veeam certifications": 3, "veeam certification": 3, "veeam credentials": 3,
+    "university partner": 3, training: 3, learned: 3, learning: 3,
     available: 2, remote: 2, remotely: 2, cv: 2, resume: 2, "résumé": 2, job: 1, career: 1,
     opportunity: 2, opportunities: 2, role: 2, roles: 2, looking: 2,
     outpost: 3, dms: 3, lapok: 3, catalogue: 3, catalog: 3, "e-commerce": 2, "e commerce": 2,
@@ -380,7 +395,7 @@
       );
     }
 
-    ["What do you build?", "Tell me about Mitsumi", "What's your stack?", "How can I contact you?"].forEach(
+    ["What do you build?", "Tell me about Mitsumi", "What's your stack?", "What certifications do you have?", "How can I contact you?"].forEach(
       function (prompt) {
         var chip = document.createElement("button");
         chip.type = "button";
@@ -394,7 +409,7 @@
     );
 
     addMessage(
-      "Hi — I'm Emmanuel's portfolio assistant. Ask about his projects, skills, experience at Mitsumi/Veeam, or how to reach him.",
+      "Hi — I'm Emmanuel's portfolio assistant. Ask about his projects, skills, certifications, experience at Mitsumi/Veeam, or how to reach him.",
       "bot"
     );
 

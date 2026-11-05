@@ -585,6 +585,54 @@ h2 { font-size: clamp(1.6rem, 3vw, 2.15rem); font-weight: 700; color: var(--dark
 .tl-body strong { font-size: 0.98rem; color: var(--dark); }
 .tl-body p { margin: 4px 0 0 !important; font-size: 0.9rem; color: var(--muted); max-width: none; }
 
+/* Credentials */
+#credentials { scroll-margin-top: 84px; }
+.credentials-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.credential-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; }
+.credential-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 18px; }
+.credential-head h3 { font-size: 1.05rem; font-weight: 700; color: var(--dark); }
+.credential-type {
+  flex-shrink: 0;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--badge-bg);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 4px 9px;
+  white-space: nowrap;
+}
+.credential-list { list-style: none; display: flex; flex-direction: column; }
+.credential-list li { display: flex; align-items: baseline; justify-content: space-between; gap: 18px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+.credential-list li:first-child { padding-top: 0; }
+.credential-list li:last-child { padding-bottom: 0; border-bottom: 0; }
+.credential-list strong { display: block; font-size: 0.9rem; color: var(--dark); }
+.credential-list span { display: block; margin-top: 2px; font-size: 0.76rem; color: var(--muted); }
+.credential-list time { flex-shrink: 0; font-size: 0.74rem; font-weight: 600; color: var(--muted); white-space: nowrap; }
+.badge-track + .badge-track { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--border); }
+.badge-track h4 { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 9px; }
+.badge-list { list-style: none; display: flex; flex-wrap: wrap; gap: 7px; }
+.badge-list li {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--badge-bg);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 4px 9px;
+}
+@media (max-width: 820px) {
+  .credentials-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 520px) {
+  .credential-card { padding: 20px; }
+  .credential-head { flex-direction: column; gap: 8px; }
+  .credential-list li { flex-direction: column; gap: 4px; }
+  .credential-list time { text-align: left; }
+}
+
 /* Footer */
 footer { background: var(--ink); color: #e2e8f0; padding: 30px 0 0; }
 .footer-bar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px 28px; padding-bottom: 24px; }
