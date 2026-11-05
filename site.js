@@ -96,9 +96,11 @@
 
   function initReveal() {
     if (reduceMotion || !("IntersectionObserver" in window)) return;
-    var elements = document.querySelectorAll(
-      ".card, .skill-block, .tl-item, .case-study, .home-about, .contact-links"
-    );
+    var selector =
+      ".card, .skill-block, .tl-item, .case-study, .home-about, .contact-links, " +
+      ".credential-card, .section-label, .section > .container > h2, .group-title, " +
+      ".cs-meta-page, .case-figure";
+    var elements = document.querySelectorAll(selector);
     var observer = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
@@ -112,6 +114,13 @@
     );
     elements.forEach(function (element) {
       if (element.getBoundingClientRect().top < window.innerHeight * 0.92) return;
+      var siblings = element.parentElement
+        ? Array.prototype.filter.call(element.parentElement.children, function (child) {
+            return child.matches(selector);
+          })
+        : [];
+      var index = Math.max(0, siblings.indexOf(element));
+      element.style.setProperty("--reveal-delay", Math.min(index, 5) * 55 + "ms");
       element.classList.add("reveal");
       observer.observe(element);
     });
@@ -173,7 +182,7 @@
     {
       keys: ["who", "about", "yourself", "background", "bio", "introduce"],
       answer:
-        "Oketayot Emmanuel Kisembo is a software developer in Kampala, Uganda, studying Information Systems at Kyambogo University. He builds database-driven business systems — two are live in production — and is currently a presales intern working on Veeam data protection at Mitsumi Distribution (Devjyot Traders)."
+        "Oketayot Emmanuel Kisembo is a software developer in Kampala, Uganda, studying Information Systems at Kyambogo University. He builds database-driven business systems — two are live in production — and is currently a sales and presales intern working on Veeam data protection at Mitsumi Distribution (Devjyot Traders)."
     },
     {
       keys: ["skill", "skills", "stack", "tech", "technology", "technologies", "language", "languages", "framework", "frameworks", "php", "mysql", "javascript", "next.js", "nextjs", "node", "node.js", "sql"],
@@ -183,7 +192,7 @@
     {
       keys: ["project", "projects", "work", "portfolio", "built", "build", "shipped", "case study"],
       answer:
-        "Six projects are on the site: Outpost DMS (live multi-depot distribution system), the LAPOK catalogue and WhatsApp ordering site (live), the Mitsumi/Veeam presales campaign, Kumalo (Next.js/Node.js team contribution), an enterprise inventory database design, and SmartFix (PHP/MySQL registration module)."
+        "Six projects are on the site: Outpost DMS (live multi-depot distribution system), the LAPOK catalogue and WhatsApp ordering site (live), the Mitsumi/Veeam sales and presales campaign, Kumalo (Next.js/Node.js team contribution), an enterprise inventory database design, and SmartFix (PHP/MySQL registration module)."
     },
     {
       keys: ["outpost", "outpost dms", "dms", "distribution", "lapok dms"],
@@ -206,9 +215,9 @@
         "Veeam University Partner 2026 badges: Veeam Sales Professional (VSP) — Cyber Resilience & Recovery, SaaS Cloud Protection, Modern Apps & Kubernetes, On Premises & Cloud, and Provider Delivery; plus Veeam Technical Specialist (VMTS) — SaaS Protection, Cybersecurity & DR, Public Cloud, and Kubernetes Data Protection. That is nine badges across five VSP and four VMTS tracks."
     },
     {
-      keys: ["mitsumi", "veeam", "presales", "internship", "intern", "devjyot", "data protection", "backup", "recovery"],
+      keys: ["mitsumi", "veeam", "sales", "presales", "internship", "intern", "devjyot", "data protection", "backup", "recovery"],
       answer:
-        "Since September 2026 Emmanuel has been a presales intern at Mitsumi Distribution (Devjyot Traders) in Kampala, focused on the Veeam data-protection portfolio. He built a partner-facing email campaign and researched backup and recovery, Veeam licensing, VMware/Broadcom changes, and the wider vendor line card."
+        "Since September 2026 Emmanuel has been a sales and presales intern at Mitsumi Distribution (Devjyot Traders) in Kampala, focused on the Veeam data-protection portfolio. He built a partner-facing email campaign and researched backup and recovery, Veeam licensing, VMware/Broadcom changes, and the wider vendor line card."
     },
     {
       keys: ["kumalo", "acholi", "kumalotech"],
@@ -228,7 +237,7 @@
     {
       keys: ["experience", "cv", "resume", "résumé", "job", "career"],
       answer:
-        "Emmanuel's experience spans live production systems (Outpost DMS and the LAPOK catalogue), a team contribution at KumaloTech, academic database projects, and his current presales internship at Mitsumi Distribution. The Résumé link opens an in-browser preview with a download option; for a current copy, email okettaemma1@gmail.com."
+        "Emmanuel's experience spans live production systems (Outpost DMS and the LAPOK catalogue), a team contribution at KumaloTech, academic database projects, and his current sales and presales internship at Mitsumi Distribution. The Résumé link opens an in-browser preview with a download option; for a current copy, email okettaemma1@gmail.com."
     },
     {
       keys: ["education", "school", "university", "kyambogo", "study", "student", "cgpa", "degree"],
@@ -248,7 +257,7 @@
     {
       keys: ["now", "currently", "current", "latest", "right now"],
       answer:
-        "Right now he is a presales intern at Mitsumi Distribution working on Veeam data protection, while continuing to build database-driven systems. The newest case study is the Mitsumi/Veeam campaign."
+        "Right now he is a sales and presales intern at Mitsumi Distribution working on Veeam data protection, while continuing to build database-driven systems. The newest case study is the Mitsumi/Veeam campaign."
     },
     {
       keys: ["live", "demo", "link", "links", "open", "try"],
@@ -266,7 +275,7 @@
     "I can answer questions about Emmanuel's projects, skills, certifications, experience at Mitsumi/Veeam, education, or contact details. Try one of the suggestions below, or email okettaemma1@gmail.com for anything else.";
 
   var keyBoost = {
-    mitsumi: 3, veeam: 3, presales: 3, internship: 3, intern: 3, devjyot: 3,
+    mitsumi: 3, veeam: 3, sales: 2, presales: 3, internship: 3, intern: 3, devjyot: 3,
     "data protection": 3, backup: 2, recovery: 2,
     contact: 3, email: 3, phone: 3, hire: 2, linkedin: 3, github: 3, whatsapp: 3, reach: 2,
     certification: 3, certifications: 3, certificate: 3, certificates: 3, cert: 3, certs: 3,
