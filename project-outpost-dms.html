@@ -4,19 +4,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Outpost DMS — Case Study | Oketayot Emmanuel Kisembo</title>
-  <meta property="og:type" content="website">
+  <meta name="description" content="How a PHP/MySQL distribution system went from paper records to dms.afriboards.com — guarded roles, audited financial edits, and dispatch that cannot move without an approved plan.">
+  <meta name="author" content="Oketayot Emmanuel Kisembo">
+  <meta name="theme-color" content="#0f766e">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ekiz538.github.io/project-outpost-dms.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Oketayot Emmanuel Kisembo">
   <meta property="og:title" content="Outpost DMS — Case Study">
   <meta property="og:description" content="How a PHP/MySQL distribution system went from paper records to dms.afriboards.com — guarded roles, audited financial edits, and dispatch that cannot move without an approved plan.">
-  <meta property="og:image" content="https://ekiz538.github.io/profile.jpg">
-  <meta name="twitter:card" content="summary">
-  <meta name="description" content="How a PHP/MySQL distribution system went from paper records to dms.afriboards.com — guarded roles, audited financial edits, and dispatch that cannot move without an approved plan.">
+  <meta property="og:url" content="https://ekiz538.github.io/project-outpost-dms.html">
+  <meta property="og:image" content="https://ekiz538.github.io/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Outpost DMS case study — Oketayot Emmanuel Kisembo">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Outpost DMS — Case Study">
+  <meta name="twitter:description" content="A PHP/MySQL distribution system live at dms.afriboards.com — guarded roles, audited financial edits, and dispatch backed by approved plans.">
+  <meta name="twitter:image" content="https://ekiz538.github.io/og-image.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Crect width=%2264%22 height=%2264%22 rx=%2212%22 fill=%22%230f766e%22/%3E%3Ctext x=%2232%22 y=%2245%22 font-family=%22Georgia,serif%22 font-weight=%22bold%22 font-size=%2236%22 fill=%22white%22 text-anchor=%22middle%22%3EO.%3C/text%3E%3C/svg%3E">
-  <link rel="stylesheet" href="styles.css?v=4">
+  <link rel="stylesheet" href="styles.css?v=5">
 </head>
 <body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <nav>
     <div class="container">
@@ -24,7 +38,7 @@
       <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
-        <a href="projects.html">Projects</a>
+        <a href="projects.html" aria-current="page">Projects</a>
         <a href="Oketayot_Kisembo_CV.pdf" target="_blank">Résumé ↗</a>
       </div>
     </div>
@@ -42,20 +56,20 @@
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <section class="section">
       <div class="container">
         <p class="cs-meta-page">PHP APIs · MySQL · vanilla JavaScript · Truehost shared hosting · deployed under the company's domain</p>
 
         <article class="case-study">
-          <h3>The problem</h3>
+          <h2>The problem</h2>
           <p>
             LAPOK Ventures distributes products across multiple depots. Stock movements, sales
             and cash handovers were tracked manually, which made reconciliation slow and gave
             leadership no reliable view of what each depot held, sold or handed over on any day.
           </p>
 
-          <h3>What the system does</h3>
+          <h2>What the system does</h2>
           <p>
             Outpost DMS is a multi-depot platform covering stock taking and dispatch, sales,
             cash handover, and leadership reporting — with distinct, guarded workflows for
@@ -63,7 +77,7 @@
             a PDF report chain for leadership.
           </p>
 
-          <h3>Engineering decisions</h3>
+          <h2>Engineering decisions</h2>
           <ul>
             <li><strong>Server-side role ownership.</strong> Permissions are enforced at the API layer: a wrong-role page bounces home with a toast. Hiding menu items is never the security boundary.</li>
             <li><strong>Dispatch resolved server-side from approved assignments.</strong> Admin maintains the recurring Monday–Saturday cadet, vehicle and route board; managers dispatch stock but route and cadet data are re-resolved by the server from today's approved assignment. Missing or incomplete assignments — and Sundays — block dispatch entirely, so stock cannot move without an authorised plan behind it.</li>
@@ -71,7 +85,7 @@
             <li><strong>One shared navigation model.</strong> Every account uses the same off-canvas left menu — full-width dashboard until pinned, closed by selecting a page, clicking outside, or pressing Escape — keeping the UI consistent across role experiences without per-role layouts.</li>
           </ul>
 
-          <h3>Data model &amp; deployment</h3>
+          <h2>Data model &amp; deployment</h2>
           <p>
             The MySQL backend spans a 14-table relational schema with session-based
             authentication. Deployment runs on Truehost shared hosting with the production
@@ -80,7 +94,7 @@
             every code push is logged in a team changelog with date, author and summary.
           </p>
 
-          <h3>Stakeholders &amp; outcomes</h3>
+          <h2>Stakeholders &amp; outcomes</h2>
           <p>
             Presented to Coca-Cola executives and the client's board during my internship.
             Depot staff use the system in day-to-day operations: cadets log deliveries against
@@ -88,7 +102,7 @@
             PDF reports rather than chasing spreadsheets.
           </p>
 
-          <h3>Honest constraints</h3>
+          <h2>Honest constraints</h2>
           <p>
             Integration with external systems (CCBA reporting feeds, EFRIS invoicing, fleet GPS)
             is manual or deferred in this build. Knowing and stating the boundary of a system is
