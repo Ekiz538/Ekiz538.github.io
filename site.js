@@ -203,7 +203,7 @@
     {
       keys: ["who", "about", "yourself", "background", "bio", "introduce"],
       answer:
-        "Oketayot Emmanuel Kisembo is a software developer in Kampala, Uganda, studying Information Systems at Kyambogo University. He builds database-driven business systems — two are live in production — and is currently a sales and presales intern working on Veeam data protection at Mitsumi Distribution (Devjyot Traders)."
+        "Oketayot Emmanuel Kisembo is a junior developer in Kampala, Uganda, studying Information Systems at Kyambogo University. He builds database-driven business systems — two are live in production — and is currently a sales intern working on Veeam data protection at Mitsumi Distribution (Devjyot Traders)."
     },
     {
       keys: ["skill", "skills", "stack", "tech", "technology", "technologies", "language", "languages", "framework", "frameworks", "php", "mysql", "javascript", "next.js", "nextjs", "node", "node.js", "sql"],
@@ -213,7 +213,7 @@
     {
       keys: ["project", "projects", "work", "portfolio", "built", "build", "shipped", "case study"],
       answer:
-        "Six projects are on the site: Outpost DMS (live multi-depot distribution system), the LAPOK catalogue and WhatsApp ordering site (live), the Mitsumi/Veeam sales and presales campaign, Kumalo (Next.js/Node.js team contribution), an enterprise inventory database design, and SmartFix (PHP/MySQL registration module)."
+        "Six projects are on the site: Outpost DMS (live multi-depot distribution system), the LAPOK catalogue and WhatsApp ordering site (live), the Mitsumi/Veeam sales research, Kumalo (Next.js/Node.js team contribution), an enterprise inventory database design, and SmartFix (PHP/MySQL registration module)."
     },
     {
       keys: ["outpost", "outpost dms", "dms", "distribution", "lapok dms"],
@@ -236,9 +236,9 @@
         "Veeam University Partner 2026 badges: Veeam Sales Professional (VSP) — Cyber Resilience & Recovery, SaaS Cloud Protection, Modern Apps & Kubernetes, On Premises & Cloud, and Provider Delivery; plus Veeam Technical Specialist (VMTS) — SaaS Protection, Cybersecurity & DR, Public Cloud, and Kubernetes Data Protection. That is nine badges across five VSP and four VMTS tracks."
     },
     {
-      keys: ["mitsumi", "veeam", "sales", "presales", "internship", "intern", "devjyot", "data protection", "backup", "recovery"],
+      keys: ["mitsumi", "veeam", "sales", "internship", "intern", "devjyot", "data protection", "backup", "recovery"],
       answer:
-        "Since September 2026 Emmanuel has been a sales and presales intern at Mitsumi Distribution (Devjyot Traders) in Kampala, focused on the Veeam data-protection portfolio. He built a partner-facing email campaign and researched backup and recovery, Veeam licensing, VMware/Broadcom changes, and the wider vendor line card."
+        "Since September 2026 Emmanuel has been a sales intern at Mitsumi Distribution (Devjyot Traders) in Kampala, focused on the Veeam data-protection portfolio. He is researching backup and recovery, Veeam licensing, VMware/Broadcom changes, and the wider vendor line card."
     },
     {
       keys: ["kumalo", "acholi", "kumalotech"],
@@ -258,7 +258,7 @@
     {
       keys: ["experience", "cv", "resume", "résumé", "job", "career"],
       answer:
-        "Emmanuel's experience spans live production systems (Outpost DMS and the LAPOK catalogue), a team contribution at KumaloTech, academic database projects, and his current sales and presales internship at Mitsumi Distribution. The Résumé link opens an in-browser preview with a download option; for a current copy, email okettaemma1@gmail.com."
+        "Emmanuel's experience spans live production systems (Outpost DMS and the LAPOK catalogue), a team contribution at KumaloTech, academic database projects, and his current sales internship at Mitsumi Distribution. The Résumé link opens an in-browser preview with a download option; for a current copy, email okettaemma1@gmail.com."
     },
     {
       keys: ["education", "school", "university", "kyambogo", "study", "student", "cgpa", "degree"],
@@ -278,12 +278,12 @@
     {
       keys: ["now", "currently", "current", "latest", "right now"],
       answer:
-        "Right now he is a sales and presales intern at Mitsumi Distribution working on Veeam data protection, while continuing to build database-driven systems. The newest case study is the Mitsumi/Veeam campaign."
+        "Right now he is a sales intern at Mitsumi Distribution working on Veeam data protection, while continuing to build database-driven systems. The newest write-up is the Mitsumi/Veeam research."
     },
     {
       keys: ["live", "demo", "link", "links", "open", "try"],
       answer:
-        "Live links: Outpost DMS at dms.afriboards.com and the LAPOK catalogue at lapok.afriboards.com. The Mitsumi/Veeam case study is on this site, and the rest of the projects are linked from the Projects page."
+        "Live links: Outpost DMS at dms.afriboards.com and the LAPOK catalogue at lapok.afriboards.com. The Mitsumi/Veeam research is on this site, and the rest of the projects are linked from the Projects page."
     },
     {
       keys: ["thanks", "thank", "great", "nice", "cool"],
@@ -293,10 +293,10 @@
   ];
 
   var fallback =
-    "I can answer questions about Emmanuel's projects, skills, certifications, experience at Mitsumi/Veeam, education, or contact details. Try one of the suggestions below, or email okettaemma1@gmail.com for anything else.";
+    "I'm Junior, Emmanuel's portfolio assistant. I can answer questions about his projects, skills, certifications, experience at Mitsumi/Veeam, education, or contact details. Try one of the suggestions below, or email okettaemma1@gmail.com for anything else.";
 
   var keyBoost = {
-    mitsumi: 3, veeam: 3, sales: 2, presales: 3, internship: 3, intern: 3, devjyot: 3,
+    mitsumi: 3, veeam: 3, sales: 2, internship: 3, intern: 3, devjyot: 3,
     "data protection": 3, backup: 2, recovery: 2,
     contact: 3, email: 3, phone: 3, hire: 2, linkedin: 3, github: 3, whatsapp: 3, reach: 2,
     certification: 3, certifications: 3, certificate: 3, certificates: 3, cert: 3, certs: 3,
@@ -326,6 +326,36 @@
     );
   }
 
+  function conversationFor(input) {
+    var text = normalize(input).trim();
+    var message = text.replace(/[.!?]+$/g, "");
+    if (/^(hi|hello|hey|yo|hiya)( there| junior)?$/.test(message)) {
+      return "Hi, I'm Junior — Emmanuel's portfolio assistant. Ask me about his projects, skills, certifications, or how to get in touch.";
+    }
+    if (/^(hi|hello|hey)[ ]+(how are you|how s it going|how are things)$/.test(message)) {
+      return "I'm doing well, thanks for asking. I'm here to help you explore Emmanuel's work. What would you like to know?";
+    }
+    if (/^(how are you|how s it going|how are things|how do you do)$/.test(message)) {
+      return "I'm doing well, thanks for asking. I'm here to help you explore Emmanuel's work. What would you like to know?";
+    }
+    if (/^(who are you|what are you|what s your name|your name)$/.test(message)) {
+      return "I'm Junior, Emmanuel's portfolio assistant. I can answer questions about his projects, skills, certifications and experience.";
+    }
+    if (/^(help|what can you do|what can i ask|options)$/.test(message)) {
+      return "I can help with projects, skills, certifications, the Mitsumi/Veeam research, education and contact details. Try one of the suggestions below.";
+    }
+    if (/^(thanks|thank you|thx|cheers|appreciate it)$/.test(message)) {
+      return "You're welcome. If you'd like to talk about a role or project, email okettaemma1@gmail.com.";
+    }
+    if (/^(bye|goodbye|see you|later|good night)$/.test(message)) {
+      return "Thanks for stopping by. You can reach Emmanuel at okettaemma1@gmail.com.";
+    }
+    if (/^(good|great|nice|cool|awesome|ok|okay|sure)$/.test(message)) {
+      return "Glad to help. Ask me anything about Emmanuel's work, or use one of the suggestions below.";
+    }
+    return "";
+  }
+
   function answerFor(input) {
     var question = normalize(input);
     var best = null;
@@ -353,7 +383,7 @@
     var launcher = document.createElement("button");
     launcher.type = "button";
     launcher.className = "assistant-launcher";
-    launcher.setAttribute("aria-label", "Open portfolio assistant");
+    launcher.setAttribute("aria-label", "Open Junior, the portfolio assistant");
     launcher.setAttribute("aria-expanded", "false");
     launcher.setAttribute("aria-controls", "assistant-panel");
     launcher.innerHTML =
@@ -364,19 +394,19 @@
     panel.className = "assistant-panel";
     panel.id = "assistant-panel";
     panel.setAttribute("role", "dialog");
-    panel.setAttribute("aria-label", "Portfolio assistant");
+    panel.setAttribute("aria-label", "Junior, the portfolio assistant");
     panel.hidden = true;
     panel.innerHTML =
       '<div class="assistant-head">' +
-      '<div class="assistant-id"><span class="assistant-avatar" aria-hidden="true">O.</span><div><strong>Ask about Emmanuel</strong><span>Portfolio assistant</span></div></div>' +
-      '<button type="button" class="assistant-close" aria-label="Close assistant">×</button>' +
+      '<div class="assistant-id"><span class="assistant-avatar" aria-hidden="true">J.</span><div><strong>Junior</strong><span>Portfolio assistant</span></div></div>' +
+      '<button type="button" class="assistant-close" aria-label="Close Junior">&times;</button>' +
       "</div>" +
       '<div class="assistant-messages" role="log" aria-live="polite" aria-label="Conversation"></div>' +
       '<div class="assistant-suggestions"></div>' +
       '<form class="assistant-form">' +
       '<label class="sr-only" for="assistant-input">Your question</label>' +
-      '<input id="assistant-input" type="text" autocomplete="off" maxlength="200" placeholder="Ask about projects, skills, contact…">' +
-      '<button type="submit" aria-label="Send question">→</button>' +
+      '<input id="assistant-input" type="text" autocomplete="off" maxlength="200" placeholder="Ask Junior about projects, skills, contact...">' +
+      '<button type="submit" aria-label="Send message"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></button>' +
       "</form>";
 
     wrapper.appendChild(launcher);
@@ -418,14 +448,14 @@
       window.setTimeout(
         function () {
           typing.remove();
-          addMessage(answerFor(value), "bot");
+          addMessage(conversationFor(value) || answerFor(value), "bot");
           busy = false;
         },
         reduceMotion ? 120 : 550 + Math.random() * 300
       );
     }
 
-    ["What do you build?", "Tell me about Mitsumi", "What's your stack?", "What certifications do you have?", "How can I contact you?"].forEach(
+    ["Hi Junior", "What do you build?", "Tell me about Mitsumi", "What's your stack?", "What certifications do you have?", "How can I contact you?"].forEach(
       function (prompt) {
         var chip = document.createElement("button");
         chip.type = "button";
@@ -439,14 +469,14 @@
     );
 
     addMessage(
-      "Hi — I'm Emmanuel's portfolio assistant. Ask about his projects, skills, certifications, experience at Mitsumi/Veeam, or how to reach him.",
+      "Hi — I'm Junior, Emmanuel's portfolio assistant. Ask about his projects, skills, certifications, experience at Mitsumi/Veeam, or how to reach him.",
       "bot"
     );
 
     function open() {
       panel.hidden = false;
       launcher.setAttribute("aria-expanded", "true");
-      launcher.setAttribute("aria-label", "Close portfolio assistant");
+      launcher.setAttribute("aria-label", "Close Junior, the portfolio assistant");
       window.setTimeout(function () {
         input.focus();
       }, 60);
@@ -455,7 +485,7 @@
     function close() {
       panel.hidden = true;
       launcher.setAttribute("aria-expanded", "false");
-      launcher.setAttribute("aria-label", "Open portfolio assistant");
+      launcher.setAttribute("aria-label", "Open Junior, the portfolio assistant");
       launcher.focus();
     }
 
