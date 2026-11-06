@@ -126,6 +126,27 @@
     });
   }
 
+  function initContactCta() {
+    var cta = document.querySelector('a.btn[href="#contact"]');
+    var target = document.getElementById("contact");
+    if (!cta || !target) return;
+    cta.addEventListener("click", function (event) {
+      event.preventDefault();
+      target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+      target.setAttribute("tabindex", "-1");
+      try {
+        target.focus({ preventScroll: true });
+      } catch (error) {
+        target.focus();
+      }
+      try {
+        history.replaceState(null, "", "#contact");
+      } catch (error) {
+        window.location.hash = "#contact";
+      }
+    });
+  }
+
   function initCounters() {
     if (reduceMotion) return;
     var counters = [];
@@ -456,6 +477,7 @@
     initThemeToggle();
     initProgress();
     initReveal();
+    initContactCta();
     initCounters();
     initAssistant();
   }
