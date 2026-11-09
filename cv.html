@@ -37,7 +37,7 @@
       } catch (error) {}
     })();
   </script>
-  <link rel="stylesheet" href="styles.css?v=12">
+  <link rel="stylesheet" href="styles.css?v=18">
 </head>
 <body>
 
@@ -60,27 +60,96 @@
       <div class="hero-text">
         <p class="hero-tag">Résumé</p>
         <h1>Oketayot Emmanuel Kisembo</h1>
-        <p class="hero-sub">Junior developer and Information Systems student at Kyambogo University. Preview both CV pages below in your browser, or download a PDF copy for later.</p>
+        <p class="hero-sub">Junior developer and Information Systems student at Kyambogo University. Open the two-page CV preview when you need it, or download a PDF copy for later.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="Oketayot_Kisembo_CV.pdf" download="Oketayot_Kisembo_CV.pdf">Download PDF</a>
           <a class="btn btn-outline" href="projects.html">View projects</a>
+          <a class="btn btn-outline" href="#credentials">View credentials</a>
         </div>
       </div>
     </div>
   </header>
 
   <main id="main">
-    <section class="cv-section">
+    <section class="cv-section" aria-labelledby="cv-preview-title">
       <div class="container">
-        <div class="cv-pages">
-          <a class="cv-page-link" href="assets/cv/cv-page-1.webp" target="_blank" rel="noopener" aria-label="Open CV page 1 full size">
-            <img src="assets/cv/cv-page-1.webp" width="1190" height="1684" alt="Page 1 of 2 — Oketayot Emmanuel Kisembo CV" fetchpriority="high" decoding="async">
-          </a>
-          <a class="cv-page-link" href="assets/cv/cv-page-2.webp" target="_blank" rel="noopener" aria-label="Open CV page 2 full size">
-            <img src="assets/cv/cv-page-2.webp" width="1190" height="1684" alt="Page 2 of 2 — Oketayot Emmanuel Kisembo CV" loading="lazy" decoding="async">
-          </a>
+        <details class="cv-viewer">
+          <summary class="cv-view-trigger">
+            <span class="cv-view-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg>
+            </span>
+            <span class="cv-view-text">
+              <span class="cv-view-kicker">Curriculum vitae</span>
+              <strong id="cv-preview-title">View the two-page CV</strong>
+              <span>Watermarked preview. Open it here without leaving the page.</span>
+            </span>
+            <span class="cv-view-cta"><span class="cv-view-open">Open preview</span><span class="cv-view-close">Close preview</span><span class="cv-view-mark" aria-hidden="true"></span></span>
+          </summary>
+          <div class="cv-view-body">
+            <div class="cv-pages">
+              <a class="cv-page-link" href="assets/cv/cv-page-1.webp" target="_blank" rel="noopener" aria-label="Open CV page 1 full size">
+                <img src="assets/cv/cv-page-1.webp" width="1190" height="1684" alt="Page 1 of 2 — Oketayot Emmanuel Kisembo CV" decoding="async">
+              </a>
+              <a class="cv-page-link" href="assets/cv/cv-page-2.webp" target="_blank" rel="noopener" aria-label="Open CV page 2 full size">
+                <img src="assets/cv/cv-page-2.webp" width="1190" height="1684" alt="Page 2 of 2 — Oketayot Emmanuel Kisembo CV" loading="lazy" decoding="async">
+              </a>
+            </div>
+            <p class="cv-note">Watermarked preview with right-click and drag disabled. Click any page to open it full size, or <a href="Oketayot_Kisembo_CV.pdf" download="Oketayot_Kisembo_CV.pdf">download the PDF</a> for the full document.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section class="cv-credentials" id="credentials" aria-labelledby="cv-credentials-title">
+      <div class="container">
+        <div class="cv-cred-panel">
+          <div class="cv-cred-head">
+            <div>
+              <p class="section-label">Credentials &amp; certificates</p>
+              <h2 id="cv-credentials-title">Networking, analytics and data protection</h2>
+            </div>
+            <a class="btn btn-outline" href="credentials.html">Full archive</a>
+          </div>
+          <p class="cv-cred-copy">
+            Selected Cisco Networking Academy credentials and Veeam University Partner 2026
+            badges across networking, analytics, and data protection. Featured badges and
+            certificate previews are below, with the full archive linked where needed.
+          </p>
+          <div class="badge-grid badge-grid-featured cv-cred-badges">
+            <a class="badge-item" href="badges/ccna/networksecurity/badges/network-security.png" target="_blank" rel="noopener" title="Open the CCNA Network Security badge">
+              <img src="badges/ccna/networksecurity/badges/network-security.png" width="450" height="450" alt="CCNA Network Security badge" loading="lazy" decoding="async">
+            </a>
+            <a class="badge-item" href="badges/ccna/dataanalyticsessentials/badges/data-analytics-essentials.png" target="_blank" rel="noopener" title="Open the Data Analytics Essentials badge">
+              <img src="badges/ccna/dataanalyticsessentials/badges/data-analytics-essentials.png" width="608" height="608" alt="Cisco Data Analytics Essentials badge" loading="lazy" decoding="async">
+            </a>
+            <a class="badge-item" href="badges/veeam/vmts-cybersecurity-dr.png" target="_blank" rel="noopener" title="Open the VMTS Cybersecurity and Disaster Recovery badge">
+              <img src="badges/veeam/vmts-cybersecurity-dr.png" width="600" height="365" alt="Veeam Technical Specialist badge: Cybersecurity and Disaster Recovery" loading="lazy" decoding="async">
+            </a>
+            <a class="badge-item" href="badges/veeam/vsp-cyber-resilience-recovery.png" target="_blank" rel="noopener" title="Open the VSP Cyber Resilience and Recovery badge">
+              <img src="badges/veeam/vsp-cyber-resilience-recovery.png" width="600" height="364" alt="Veeam Sales Professional badge: Cyber Resilience and Recovery" loading="lazy" decoding="async">
+            </a>
+          </div>
+          <h3 class="cv-cred-subtitle">Certificate previews</h3>
+          <div class="cert-previews cv-cred-certs">
+            <a class="cert-preview" href="badges/veeam/certs/vmts-saas-protection-2026.webp" target="_blank" rel="noopener" title="Open the VMTS SaaS Protection certificate preview">
+              <img src="badges/veeam/certs/vmts-saas-protection-2026.webp" width="1584" height="1224" alt="VMTS SaaS Protection certificate preview" loading="lazy" decoding="async">
+              <span>SaaS Protection</span>
+            </a>
+            <a class="cert-preview" href="badges/veeam/certs/vmts-cybersecurity-dr-2026.webp" target="_blank" rel="noopener" title="Open the VMTS Cybersecurity and DR certificate preview">
+              <img src="badges/veeam/certs/vmts-cybersecurity-dr-2026.webp" width="1584" height="1224" alt="VMTS Cybersecurity and Disaster Recovery certificate preview" loading="lazy" decoding="async">
+              <span>Cybersecurity &amp; DR</span>
+            </a>
+            <a class="cert-preview" href="badges/veeam/certs/vmts-public-cloud-2026.webp" target="_blank" rel="noopener" title="Open the VMTS Public Cloud certificate preview">
+              <img src="badges/veeam/certs/vmts-public-cloud-2026.webp" width="1584" height="1224" alt="VMTS Public Cloud certificate preview" loading="lazy" decoding="async">
+              <span>Public Cloud</span>
+            </a>
+            <a class="cert-preview" href="badges/veeam/certs/vmts-kubernetes-data-protection-2026.webp" target="_blank" rel="noopener" title="Open the VMTS Kubernetes Data Protection certificate preview">
+              <img src="badges/veeam/certs/vmts-kubernetes-data-protection-2026.webp" width="1584" height="1224" alt="VMTS Kubernetes Data Protection certificate preview" loading="lazy" decoding="async">
+              <span>Kubernetes</span>
+            </a>
+          </div>
+          <p class="badge-note">Badge and certificate previews are watermarked. <a href="credentials.html">Open the full archive for all 12 badges, Cisco certificates, transcript and PDF downloads &rarr;</a></p>
         </div>
-        <p class="cv-note">Preview rendered in your browser. Click any page to open it full size, or <a href="Oketayot_Kisembo_CV.pdf" download="Oketayot_Kisembo_CV.pdf">download the PDF</a> for the original file.</p>
       </div>
     </section>
   </main>
@@ -103,6 +172,6 @@
     </div>
   </footer>
 
-  <script src="site.js?v=12" defer></script>
+  <script src="site.js?v=18" defer></script>
 </body>
 </html>

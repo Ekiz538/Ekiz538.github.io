@@ -199,101 +199,156 @@
     });
   }
 
+  function initBackgroundFx() {
+    if (reduceMotion || document.querySelector(".bg-fx")) return;
+    var fx = document.createElement("div");
+    fx.className = "bg-fx";
+    fx.setAttribute("aria-hidden", "true");
+    fx.innerHTML =
+      '<div class="bg-core">' +
+        '<span class="bg-core-halo"></span>' +
+        '<div class="bg-core-spin">' +
+          '<span class="bg-core-grid"></span>' +
+          '<span class="bg-core-ring bg-core-ring-a"></span>' +
+          '<span class="bg-core-ring bg-core-ring-b"></span>' +
+          '<span class="bg-core-ring bg-core-ring-c"></span>' +
+          '<span class="bg-core-ring bg-core-ring-d"></span>' +
+          '<span class="bg-core-ring bg-core-ring-e"></span>' +
+          '<span class="bg-core-node bg-core-node-a"></span>' +
+          '<span class="bg-core-node bg-core-node-b"></span>' +
+          '<span class="bg-core-node bg-core-node-c"></span>' +
+          '<span class="bg-core-node bg-core-node-d"></span>' +
+          '<span class="bg-core-node bg-core-node-e"></span>' +
+          '<span class="bg-core-node bg-core-node-f"></span>' +
+          '<span class="bg-core-node bg-core-node-g"></span>' +
+          '<span class="bg-core-node bg-core-node-h"></span>' +
+        '</div>' +
+        '<span class="bg-core-orb"></span>' +
+      '</div>' +
+      '<span class="bg-particle bg-particle-a"></span>' +
+      '<span class="bg-particle bg-particle-b"></span>';
+    document.body.insertBefore(fx, document.body.firstChild);
+  }
+
+  function initProtectedMedia() {
+    var selector = ".cv-page-link, .badge-item, .cert-preview";
+    var items = document.querySelectorAll(selector);
+    if (!items.length) return;
+    items.forEach(function (item) {
+      item.setAttribute("data-protected", "true");
+      item.querySelectorAll("img").forEach(function (image) {
+        image.setAttribute("draggable", "false");
+      });
+    });
+    function protectedTarget(target) {
+      return target && target.closest ? target.closest(selector) : null;
+    }
+    document.addEventListener("contextmenu", function (event) {
+      if (protectedTarget(event.target)) event.preventDefault();
+    });
+    document.addEventListener("dragstart", function (event) {
+      if (protectedTarget(event.target)) event.preventDefault();
+    });
+    document.addEventListener("selectstart", function (event) {
+      if (protectedTarget(event.target)) event.preventDefault();
+    });
+  }
+
   var knowledge = [
     {
       keys: ["who", "about", "yourself", "background", "bio", "introduce"],
       answer:
-        "Oketayot Emmanuel Kisembo is a junior developer in Kampala, Uganda, studying Information Systems at Kyambogo University. He builds database-driven business systems — two are live in production — and is currently a sales intern working on Veeam data protection at Mitsumi Distribution (Devjyot Traders)."
+        "Oketayot Emmanuel Kisembo is an Information Systems student at Kyambogo University and a junior developer based in Kampala, Uganda. He has worked on live PHP/MySQL web projects during his internship at LAPOK Ventures and is currently a sales intern at Mitsumi Distribution, learning Veeam data protection."
     },
     {
       keys: ["skill", "skills", "stack", "tech", "technology", "technologies", "language", "languages", "framework", "frameworks", "php", "mysql", "javascript", "next.js", "nextjs", "node", "node.js", "sql"],
       answer:
-        "Core stack: PHP, MySQL, SQL design, JavaScript, and Next.js/Node.js. He also works with Linux, DNS and hosting, networking (CCNA-track), and Veeam backup and data protection. The focus is backend and database correctness first, then full-stack delivery."
+        "Current strengths include PHP, MySQL, SQL design, and front-end fundamentals with HTML, CSS, and JavaScript. He is also building experience with Next.js and Node.js, and learning Veeam backup/recovery and networking fundamentals."
     },
     {
       keys: ["project", "projects", "work", "portfolio", "built", "build", "shipped", "case study"],
       answer:
-        "Six projects are on the site: Outpost DMS (live multi-depot distribution system), the LAPOK catalogue and WhatsApp ordering site (live), the Mitsumi/Veeam sales research, Kumalo (Next.js/Node.js team contribution), an enterprise inventory database design, and SmartFix (PHP/MySQL registration module)."
+        "Projects on the site include Outpost DMS (live PHP/MySQL distribution system), the LAPOK catalogue and WhatsApp ordering site (live), Veeam-focused internship learning at Mitsumi, a Kumalo team collaboration, an enterprise inventory database design project, and SmartFix (a PHP/MySQL group project)."
     },
     {
       keys: ["outpost", "outpost dms", "dms", "distribution", "lapok dms"],
       answer:
-        "Outpost DMS is a live multi-depot distribution platform for LAPOK Ventures at dms.afriboards.com. It handles stock taking, dispatch against approved routes, cash handover, and PDF reporting, with server-enforced roles for cadets, accountants, managers and admins. It runs on a 14-table MySQL schema."
+        "Outpost DMS is a live multi-depot distribution system built for LAPOK Ventures. It supports stock taking, dispatch based on approved assignments, cash handover, and PDF reporting, with separate workflows and server-side access checks for different roles."
     },
     {
       keys: ["catalogue", "catalog", "whatsapp", "lapok", "ordering", "ecommerce", "e-commerce", "e commerce"],
       answer:
-        "The LAPOK catalogue site (lapok.afriboards.com) is a product catalogue with per-SKU slideshows, a promotions engine, and a WhatsApp bulk-ordering flow. Customers compose an order on the site and it arrives as a structured WhatsApp message. There is no checkout because buying happens through existing WhatsApp relationships."
+        "The LAPOK catalogue site (lapok.afriboards.com) presents products and supports a WhatsApp-based ordering flow. Customers can prepare an order on the site and send a structured message through WhatsApp."
     },
     {
       keys: ["certification", "certifications", "certificate", "certificates", "cert", "certs", "credential", "credentials", "cisco", "ccna", "data analytics", "network security", "networking"],
       answer:
-        "Cisco Networking Academy credentials: CCNA: Network Security (31 Oct 2026), Data Analytics Essentials (27 Aug 2026), and CCNA: Introduction to Networks (10 Jul 2025)."
+        "Cisco Networking Academy credentials listed on the site: CCNA: Network Security (31 Oct 2026), Data Analytics Essentials (27 Aug 2026), and CCNA: Introduction to Networks (10 Jul 2025)."
     },
     {
       keys: ["badge", "badges", "vsp", "vmts", "veeam university", "veeam badges", "veeam training", "veeam certifications", "veeam certification", "veeam credentials", "university partner", "training", "learned", "learning"],
       answer:
-        "Veeam University Partner 2026 badges: Veeam Sales Professional (VSP) — Cyber Resilience & Recovery, SaaS Cloud Protection, Modern Apps & Kubernetes, On Premises & Cloud, and Provider Delivery; plus Veeam Technical Specialist (VMTS) — SaaS Protection, Cybersecurity & DR, Public Cloud, and Kubernetes Data Protection. That is nine badges across five VSP and four VMTS tracks."
+        "Veeam University Partner 2026 badges on the site include five VSP badges and four VMTS badges across areas such as cyber resilience, SaaS protection, modern apps/Kubernetes, on-premises/cloud, and public cloud. See the résumé credentials section or the full archive."
     },
     {
       keys: ["mitsumi", "veeam", "sales", "internship", "intern", "devjyot", "data protection", "backup", "recovery"],
       answer:
-        "Since September 2026 Emmanuel has been a sales intern at Mitsumi Distribution (Devjyot Traders) in Kampala, focused on the Veeam data-protection portfolio. He is researching backup and recovery, Veeam licensing, VMware/Broadcom changes, and the wider vendor line card."
+        "Since September 2026 Emmanuel has been a sales intern at Mitsumi Distribution (Devjyot Traders) in Kampala. His focus is learning Veeam data protection, including backup/recovery concepts, licensing basics, and clear customer communication."
     },
     {
       keys: ["kumalo", "acholi", "kumalotech"],
       answer:
-        "Kumalo is an Acholi community platform built with KumaloTech. Emmanuel contributed to the Next.js frontend and Node.js API inside an existing professional codebase. The repository is private, so there is no public link, but he can walk through the architecture in an interview."
+        "Kumalo is a full-stack project developed with KumaloTech in a private repository. Emmanuel contributed as an invited collaborator, working with the Next.js frontend and Node.js API inside an existing team codebase."
     },
     {
       keys: ["inventory", "database", "schema", "normalisation", "normalization", "er diagram", "oracle"],
       answer:
-        "The Enterprise Inventory Management System was an academic database-design project: ER modelling, a relational schema on Oracle, normalisation trade-offs, and a design defended on demo day. That discipline carried into Outpost DMS's 14-table production schema."
+        "The Enterprise Inventory Management System was an academic Oracle database design project. Emmanuel worked on ER modelling, relational schema design, and key database design decisions, and presented the work on demo day."
     },
     {
       keys: ["smartfix", "repair"],
       answer:
-        "SmartFix IT Solutions was a group-built repair-booking site. Emmanuel built the shared PHP/MySQL database connection layer and the user registration module, including validation, duplicate-account handling, and secure credential storage."
+        "SmartFix IT Solutions was a group academic project for a computer-repair booking website. Emmanuel worked on the PHP/MySQL database connection and the user registration module."
     },
     {
       keys: ["experience", "cv", "resume", "résumé", "job", "career"],
       answer:
-        "Emmanuel's experience spans live production systems (Outpost DMS and the LAPOK catalogue), a team contribution at KumaloTech, academic database projects, and his current sales internship at Mitsumi Distribution. The Résumé link opens an in-browser preview with a download option; for a current copy, email okettaemma1@gmail.com."
+        "Experience includes live internship projects at LAPOK Ventures, a team collaboration with KumaloTech, academic database/web projects, and a current sales internship at Mitsumi Distribution focused on Veeam. The résumé page has a click-to-view CV and credentials section."
     },
     {
       keys: ["education", "school", "university", "kyambogo", "study", "student", "cgpa", "degree"],
       answer:
-        "He studies Information Systems at Kyambogo University and currently holds a 3.99 CGPA. His coursework and self-study cover databases, networking (CCNA-track), Linux, and web development."
+        "He studies Information Systems at Kyambogo University and holds a 3.99 CGPA. Coursework includes database systems, web development, networks, and business process analysis."
     },
     {
       keys: ["contact", "email", "phone", "call", "hire", "available", "reach", "whatsapp", "linkedin", "github", "opportunity", "opportunities", "role", "roles", "looking"],
       answer:
-        "Email: okettaemma1@gmail.com\nPhone/WhatsApp: +256 782 761164\nLinkedIn: linkedin.com/in/oketayot-emmanuel-kisembo-2bb05841b\nGitHub: github.com/Ekiz538\nHe is open to junior developer roles and based in Kampala, Uganda."
+        "Email: okettaemma1@gmail.com\nPhone/WhatsApp: +256 782 761164\nLinkedIn: linkedin.com/in/oketayot-emmanuel-kisembo-2bb05841b\nGitHub: github.com/Ekiz538\nHe is based in Kampala, Uganda and open to junior developer opportunities."
     },
     {
       keys: ["location", "where", "kampala", "uganda", "remote", "remotely", "based"],
       answer:
-        "He is based in Kampala, Uganda. He is open to junior developer roles and can work remotely."
+        "He is based in Kampala, Uganda."
     },
     {
       keys: ["now", "currently", "current", "latest", "right now"],
       answer:
-        "Right now he is a sales intern at Mitsumi Distribution working on Veeam data protection, while continuing to build database-driven systems. The newest write-up is the Mitsumi/Veeam research."
+        "Currently he is a sales intern at Mitsumi Distribution learning Veeam data protection, while continuing to build his skills in database-driven web development."
     },
     {
       keys: ["live", "demo", "link", "links", "open", "try"],
       answer:
-        "Live links: Outpost DMS at dms.afriboards.com and the LAPOK catalogue at lapok.afriboards.com. The Mitsumi/Veeam research is on this site, and the rest of the projects are linked from the Projects page."
+        "Live links on the site include Outpost DMS at dms.afriboards.com and the LAPOK catalogue at lapok.afriboards.com. Other projects are described from the Projects page."
     },
     {
       keys: ["thanks", "thank", "great", "nice", "cool"],
       answer:
-        "You're welcome. If you'd like to talk about a role or a project, email okettaemma1@gmail.com."
+        "You're welcome. If you’d like to discuss a role or project, you can reach Emmanuel at okettaemma1@gmail.com."
     }
   ];
 
   var fallback =
-    "I'm Junior, Emmanuel's portfolio assistant. I can answer questions about his projects, skills, certifications, experience at Mitsumi/Veeam, education, or contact details. Try one of the suggestions below, or email okettaemma1@gmail.com for anything else.";
+    "I can answer questions about Emmanuel’s projects, skills, credentials, education, current internship, or contact details. If you need something specific, email okettaemma1@gmail.com.";
 
   var keyBoost = {
     mitsumi: 3, veeam: 3, sales: 2, internship: 3, intern: 3, devjyot: 3,
@@ -505,10 +560,12 @@
 
   function init() {
     initThemeToggle();
+    initBackgroundFx();
     initProgress();
     initReveal();
     initContactCta();
     initCounters();
+    initProtectedMedia();
     initAssistant();
   }
 
